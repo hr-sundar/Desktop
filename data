@@ -1,0 +1,26 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the sales data
+sales_data = pd.read_csv('sales_data.csv')
+
+# Display the first few rows of the data
+sales_data.head()
+
+# Calculate total sales
+total_sales = sales_data['Sales'].sum()
+print(f"Total Sales: {total_sales}")
+
+# Group sales by product and calculate total sales for each product
+product_sales = sales_data.groupby('Product')['Sales'].sum()
+print("\nSales by Product:")
+print(product_sales)
+
+# Create a bar chart of sales by product
+product_sales.plot(kind='bar')
+plt.title('Sales by Product')
+plt.xlabel('Product')
+plt.ylabel('Sales')
+plt.show()
+
+# Calculate monthly
